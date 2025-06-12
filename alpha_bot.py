@@ -1,17 +1,21 @@
 import os
-from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, Webhook
 from flask import Flask, request
+from telegram import Update
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-TOKEN = os.getenv('BOT_TOKEN')
-WEBHOOK_URL = os.getenv('https://bot-7ynr.onrender.com')  # e.g. https://your-app.onrender.com
+# Load token and channel ID from environment
+BOT_TOKEN = os.getenv("7705120475:AAEX2-0g5aKjCOez7-GUsqWfRF6p_kI4Wcw")
+CHANNEL_ID = os.getenv("-7368291347")  # e.g. @alphalegions or -1001234567890
+WEBHOOK_URL = os.getenv("https://bot-7ynr.onrender.com")  # e.g. https://your-app.onrender.com
 
+# Flask app
 app = Flask(__name__)
 
-# Telegram bot setup
-bot_app = ApplicationBuilder().token(TOKEN).build()
+# Telegram bot app
+bot_app = ApplicationBuilder().token(BOT_TOKEN).build()
 
-WELCOME = """🛡 *THE ALPHA LEGION HAS AWAKENED* 🛡
+# Welcome message
+WELCOME_MESSAGE = """🛡 *THE ALPHA LEGION HAS AWAKENED* 🛡
 Where Wolves Hunt Wealth.
 
 Welcome to the most elite crypto syndicate on Telegram.
@@ -31,21 +35,29 @@ or get hunted by the pack. ☠️
 👉 [START PRINTING MONEY NOW!!!](https://t.me/alphalegions)
 """
 
-async def start(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(WELCOME, parse_mode='Markdown')
+# /start command handler
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(WELCOME_MESSAGE, parse_mode='Markdown')
+    
+    # Send message to channel
+    await context.bot.send_message(
+        chat_id=CHANNEL_ID,
+        text="🚀 A new recruit has joined The Alpha Legion!",
+    )
 
-bot_app.add_handler(CommandHandler('start', start))
+bot_app.add_handler(CommandHandler("start", start))
 
-# Flask route for Telegram webhook
-@app.route('/', methods=['POST'])
-def webhook_handler():
-    bot_app.bot.process_update(Update.de_json(request.get_json(), bot_app.bot))
-    return 'OK'
+# Flask webhook route
+@app.route("/", methods=["POST"])
+def webhook():
+    update = Update.de_json(request.get_json(force=True), bot_app.bot)
+    bot_app.update_queue.put_nowait(update)
+    return "OK"
 
-# After startup, set webhook
-if __name__ == '__main__':
+# Set webhook and run bot
+if __name__ == "__main__":
     bot_app.run_webhook(
-        listen='0.0.0.0',
-        port=int(os.environ.get('PORT', '8443')),
+        listen="0.0.0.0",
+        port=int(os.environ.get("PORT", 8443)),
         webhook_url=WEBHOOK_URL
     )
