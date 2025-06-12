@@ -4,7 +4,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, Webho
 from flask import Flask, request
 
 TOKEN = os.getenv('BOT_TOKEN')
-WEBHOOK_URL = os.getenv('WEBHOOK_URL')  # e.g. https://your-app.onrender.com
+WEBHOOK_URL = os.getenv('https://bot-7ynr.onrender.com')  # e.g. https://your-app.onrender.com
 
 app = Flask(__name__)
 
