@@ -39,14 +39,6 @@ or get hunted by the pack. ☠️
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(WELCOME_MESSAGE, parse_mode='Markdown')
     
-    # Send message to channel
-    async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    chat_id = update.effective_chat.id  # <- This safely gets the chat_id
-    await context.bot.send_message(
-        chat_id=chat_id,
-        text="Welcome! ✅ Your bot is working."
-    )
-
 
 bot_app.add_handler(CommandHandler("start", start))
 
