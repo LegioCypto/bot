@@ -6,22 +6,23 @@ BOT_TOKEN = '7705120475:AAEX2-0g5aKjCOez7-GUsqWfRF6p_kI4Wcw'
 
 # Welcome message
 WELCOME_MESSAGE = """🛡 *THE ALPHA LEGION HAS AWAKENED* 🛡
+Where Wolves Hunt Wealth.
 
-Welcome to the shadows — where ⚔️ power, 🧠 knowledge, and 🎯 strategy collide.
+Welcome to the most elite crypto syndicate on Telegram.
+We don’t follow trends, we create them.
+🐺 Daily alpha
+📈 Underground insiders
+💰 Wealth-building strategies
+🧠 Mindset of a Millionaire
 
-This is not just a community... it's a *movement*.
-
-If you're ready to lead, not follow — to conquer, not comply —
-then join us where the real war is fought:
-
-👉 [Enter the Main Legion Command](https://t.me/alphalegions)
+💼 Join the pack. Get rich with precision.
 
 💬 *Meme coins • Signals • Tactics • Brotherhood*
 
 You either ride with the wolves… 🐺  
 or get hunted by the pack. ☠️
 
-🔗 The Alpha Legion is waiting. Don’t keep us waiting.
+👉 [START PRINTING MONEY NOW!!!](https://t.me/alphalegions)
 """
 
 # Start command handler
