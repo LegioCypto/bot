@@ -4,9 +4,9 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 # Load token and channel ID from environment
-BOT_TOKEN = os.getenv("7705120475:AAEX2-0g5aKjCOez7-GUsqWfRF6p_kI4Wcw")
-CHANNEL_ID = os.getenv("@alphalegions")  # e.g. @alphalegions or -1001234567890
-WEBHOOK_URL = os.getenv("https://bot-7ynr.onrender.com")  # e.g. https://your-app.onrender.com
+BOT_TOKEN = ("7705120475:AAEX2-0g5aKjCOez7-GUsqWfRF6p_kI4Wcw")
+CHANNEL_ID = os.getenv("-7368291347")  # e.g. @alphalegions or -1001234567890
+WEBHOOK_URL = os.getenv("https://bot-7ynr.onrender.com/webhook")  # e.g. https://your-app.onrender.com
 
 # Flask app
 app = Flask(__name__)
