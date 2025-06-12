@@ -57,7 +57,8 @@ def webhook():
 # Set webhook and run bot
 if __name__ == "__main__":
     bot_app.run_webhook(
-        listen="0.0.0.0",
-        port=int(os.environ.get("PORT", 8443)),
-        webhook_url=WEBHOOK_URL
-    )
+    listen="0.0.0.0",
+    port=int(os.environ.get("PORT", 8443)),
+    webhook_url="https://bot-7ynr.onrender.com"  # ← Replace with your actual Render URL
+)
+
